@@ -1,16 +1,16 @@
 package savogineros.EserciziBackEndu2w1d2;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import savogineros.EserciziBackEndu2w1d2.entities.Drink;
-import savogineros.EserciziBackEndu2w1d2.entities.Menu;
-import savogineros.EserciziBackEndu2w1d2.entities.Pizza;
-import savogineros.EserciziBackEndu2w1d2.entities.Topping;
+import org.springframework.context.annotation.PropertySource;
+import savogineros.EserciziBackEndu2w1d2.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
+@PropertySource("application.properties")
 public class BeansConfig {
 
     // TOPPINGS
@@ -112,4 +112,31 @@ public class BeansConfig {
         return new Menu(pizzas,drinks,toppings);
     }
 
+    // TAVOLI
+    @Bean("Tavolo1")
+    Table getTable1(@Value("${cover.price}") double coverPrice) {
+        return new Table(1,4,true, coverPrice);
+    }
+    @Bean("Tavolo2")
+    Table getTable2(@Value("${cover.price}") double coverPrice) {
+        return new Table(2,6,true, coverPrice);
+    }
+    @Bean("Tavolo3")
+    Table getTable3(@Value("${cover.price}") double coverPrice) {
+        return new Table(3,2,true, coverPrice);
+    }
+    @Bean("Tavolo4")
+    Table getTable4(@Value("${cover.price}") double coverPrice) {
+        return new Table(4,4,false, coverPrice);
+    }
+
+    /*// ORDINI
+    @Bean
+    Order order1() {
+        // nelle soluzioni fanno gli ordini direttamente nel runner col costruttore che accetta solo
+        // numero ordine e tavolo...
+        // Facendo qui l'ordine dovò prima crearmi un tavolo.... che poi aggiungerò al nuovo ordine....
+        // un casino insomma. Proviamo a seguire la soluzione...
+        return new Order(1,)
+    }*/
 }
