@@ -102,7 +102,9 @@ public class BeansConfig {
     }
 
     // IL MENU!
-    @Bean
+    // Proviamo a rendere Menu un Component e lasciamo che spring risolva automaticamente le dipendenze!
+    // INCREDIBILE! Spring risolve automaticamente tutte le dipendenze delle tre liste!
+    /*@Bean
     Menu menu() {
         List<Topping> toppings = new ArrayList<>(List.of(toppingPatatine(),toppingSalame(),toppingPomodoro(),
                 toppingProsciutto(),toppingMozzarella(),toppingFormaggioAsiago(),toppingFunghiPorcini(),
@@ -110,7 +112,7 @@ public class BeansConfig {
         List<Pizza> pizzas = new ArrayList<>(List.of(pizzaMargherita(),pizzaAsiago(),pizzaSalsicciaEPatatine(),pizzaProsciuttoEFunghi()));
         List<Drink> drinks = new ArrayList<>(List.of(drinkAcqua(),drinkAranciata(),drinkCocaCola(),drinkVino()));
         return new Menu(pizzas,drinks,toppings);
-    }
+    }*/
 
     // TAVOLI
     @Bean("Tavolo1")
@@ -130,8 +132,8 @@ public class BeansConfig {
         return new Table(4,4,false, coverPrice);
     }
 
-    /*// ORDINI
-    @Bean
+    // ORDINI
+    /*@Bean
     Order order1() {
         // nelle soluzioni fanno gli ordini direttamente nel runner col costruttore che accetta solo
         // numero ordine e tavolo...

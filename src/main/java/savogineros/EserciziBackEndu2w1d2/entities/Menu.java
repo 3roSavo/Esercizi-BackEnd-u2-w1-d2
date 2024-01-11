@@ -1,7 +1,9 @@
 package savogineros.EserciziBackEndu2w1d2.entities;
 
-import java.util.List;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+@Component
 public class Menu {
     private List<Pizza> pizzaList;
     private List<Drink> drinkList;
